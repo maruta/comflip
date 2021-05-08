@@ -15,10 +15,6 @@ const server = express()
         io.to(req.body.room).emit('comment',req.body.comment);
         res.send("ok");
     })
-    .get('/api/alarm', function (req, res) {
-        console.log("alarm from: "+req.query.room);
-        res.send('ok');
-    })
     .use(express.static('public'))
     .listen(PORT, () => console.log(`Listening on ${PORT}`));
 

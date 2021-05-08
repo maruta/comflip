@@ -98,26 +98,26 @@ document.addEventListener('DOMContentLoaded', function (event) {
         return comment
     }
 
-    let socket = io();
+
     let roomName = decodeURIComponent(location.hash.slice(1));
-    
     if(!roomName){
         roomName = prompt('room name?');
         history.pushState(null, null, '#'+roomName);
     }
     
-    socket.emit('join', roomName);
-    
+    let socket = io({autoConnect: false});
+
+    socket.on("connect", function() {
+        socket.emit('join', roomName);
+    });
+
+    socket.connect();
+
     socket.on('comment', (comment) => {
         putComment(comment);
     });
 
     putComment('Waiting for your comments on '+roomName)
-
-    setInterval(()=>{
-        const qs = new URLSearchParams({room: roomName});
-        fetch(`/api/alarm?${qs}`);
-    }, 10*1000*60);
 
 })
 
