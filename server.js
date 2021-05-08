@@ -5,10 +5,19 @@ const PORT = process.env.PORT || 3000;
 
 const server = express()
     .use(express.json())
+    .set('trust proxy', true)
     .post('/api/emit', (req, res) => {
-        console.log(req.body);
+        console.log({
+            ip: req.ip,
+            room: req.body.room,
+            comment: req.body.comment
+        });
         io.to(req.body.room).emit('comment',req.body.comment);
         res.send("ok");
+    })
+    .get('/api/alarm', function (req, res) {
+        console.log("alarm from: "+req.query.room);
+        res.send('ok');
     })
     .use(express.static('public'))
     .listen(PORT, () => console.log(`Listening on ${PORT}`));

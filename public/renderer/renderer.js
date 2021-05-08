@@ -113,13 +113,11 @@ document.addEventListener('DOMContentLoaded', function (event) {
     });
 
     putComment('Waiting for your comments on '+roomName)
-    /*
-        let randomComment = ()=>{
-            const cmts = ["てすと","ちょっと長いコメント","hoge","だいぶ長いコメントの一例はこんなかんじでしょうか？"]
-            putComment(cmts[Math.floor(Math.random()*cmts.length)])
-            setTimeout(randomComment,Math.random()*1000)
-        }
-        randomComment()
-        */
+
+    setInterval(()=>{
+        const qs = new URLSearchParams({room: roomName});
+        fetch(`/api/alarm?${qs}`);
+    }, 10*1000*60);
+
 })
 
