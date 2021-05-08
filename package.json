@@ -1,0 +1,19 @@
+{
+  "name": "comment-flipper",
+  "version": "1.0.0",
+  "description": "A tool to fly comments from the audience on the screen",
+  "main": "index.js",
+  "engines": {
+    "node": "14.16.x"
+  },
+  "scripts": {
+    "start": "node server.js"
+  },
+  "keywords": [],
+  "author": "Ichiro Maruta",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.17.1",
+    "socket.io": "^4.0.2"
+  }
+}
