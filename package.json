@@ -11,6 +11,10 @@
   },
   "keywords": [],
   "author": "Ichiro Maruta",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/maruta/comflip.git"
+  },
   "license": "MIT",
   "dependencies": {
     "express": "^4.17.1",
