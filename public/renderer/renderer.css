@@ -20,21 +20,10 @@ html, body {
 
 .comment {
     width: 100%;
-    font-size: 60px;
-    line-height: 1.1;
     padding: 0;
     position: relative;
-    font-family: 'BIZ UDPゴシック','Hiragino Kaku Gothic ProN','Hiragino Sans', Meiryo,sans-serif;
 }
 
-.text{
-    color: white;
-}
-
-.lining{
-    color: black;
-    -webkit-text-stroke: 8px black;
-}
 
 .comment p {
     margin: 0;
@@ -46,7 +35,6 @@ html, body {
     white-space: nowrap;
     animation-name: marquee;
     animation-timing-function: linear;
-    animation-duration: 8s;
     animation-fill-mode: forwards;
     animation-iteration-count: 1;
 }
