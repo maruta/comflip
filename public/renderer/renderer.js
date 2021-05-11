@@ -100,14 +100,14 @@ document.addEventListener('DOMContentLoaded', function (event) {
 
 
     let roomName = decodeURIComponent(location.hash.slice(1));
-    if(!roomName){
+    if (!roomName) {
         roomName = prompt('room name?');
-        history.pushState(null, null, '#'+roomName);
+        history.pushState(null, null, '#' + roomName);
     }
-    
-    let socket = io({autoConnect: false});
 
-    socket.on("connect", function() {
+    let socket = io({ autoConnect: false });
+
+    socket.on("connect", function () {
         socket.emit('join', roomName);
     });
 
@@ -117,7 +117,8 @@ document.addEventListener('DOMContentLoaded', function (event) {
         putComment(comment);
     });
 
-    putComment('Waiting for your comments on '+roomName)
+    // Wait a moment for the custom CSS to be loaded.
+    setTimeout(() => putComment('Waiting for your comments on ' + roomName), 100);
 
 })
 
