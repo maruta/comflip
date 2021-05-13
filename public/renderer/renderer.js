@@ -88,9 +88,9 @@ document.addEventListener('DOMContentLoaded', function (event) {
             t0: t
         }
 
-        elmText.onanimationend = () => {
+        setTimeout(() => {
             elmWrapper.remove()
-        }
+        }, duration);
 
         lastComments[line] = comment
         return comment
