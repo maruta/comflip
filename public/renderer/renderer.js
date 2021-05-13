@@ -53,18 +53,14 @@ document.addEventListener('DOMContentLoaded', function (event) {
         const t = Date.now()
 
         if (line == undefined) {
+            // Find a line where comments do not collide.
             let found = false
-            let oldestIdx = 0, oldestTime = t
             for (line = 0; line < numLines; line++) {
                 if (lastComments[line] == undefined) {
                     found = true
                     break
                 }
                 let lc = lastComments[line]
-                if (oldestTime > lc.t0) {
-                    oldestIdx = line
-                    oldestTime = lc.t0
-                }
                 let speed = (screenWidth + width) / duration
                 let lcSpeed = (screenWidth + lc.width) / duration
                 // check current position
@@ -74,7 +70,9 @@ document.addEventListener('DOMContentLoaded', function (event) {
                 found = true
                 break
             }
+
             if (!found) {
+                // Give up and place randomly.                
                 line = Math.floor(Math.random() * numLines)
             }
         }
