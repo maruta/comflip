@@ -9,13 +9,14 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-wEmeIV1mKuiNpC+IOBjI7aAzPcEZeedi5yW5f2yOq55WWLwNGmvvx4Um1vskeMj0" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css">
+    <link rel="icon" href="../favicon.svg" type="image/svg+xml">
 </head>
 
 <body>
     <div class="container">
         <h1 class="display-6 text-center mt-4 mb-4" id="title">Comment Flipper</h1>
-        <form id="form" class="d-grid gap-2 mb-3">
-            <input type="text" class="form-control form-control-lg" name="comment" id="comment" size="25" placeholder="Enter your comment here..." autofocus>
+        <form id="form" class="d-grid gap-3 mb-3">
+            <input type="text" class="form-control form-control-lg" name="comment" id="comment" size="25" placeholder="Enter your comment here...">
             <div class="btn-group btn-group-lg" role="group">
                 <button type="submit" class="btn btn-outline-dark">Submit</button>
                 <button type="button" class="btn btn-outline-dark" style="flex:none;" id="repeat"><i class="bi bi-arrow-repeat"></i>
@@ -26,6 +27,10 @@
             <li>Your comments may be seen by outsiders.</li>
             <li>Do not send any personal or sensitive information.</li>
         </ul>
+        <hr class="mt-4">
+        <p>
+            Powered by <a href="https://github.com/maruta/comflip" target="_blank">Comment Flipper</a>.
+        </p>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-p34f1UUtsS3wqzfto5wAAmdvj+osOnFyQFpp4Ua3gs/ZVWx6oOypYoCJhGGScy+8"

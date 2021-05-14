@@ -45,5 +45,7 @@ document.addEventListener('DOMContentLoaded', function (event) {
         })
         history = comment;
         commentElm.value = "";
+        commentElm.focus({preventScroll:true});
     });
+    commentElm.focus({preventScroll:true});
 });

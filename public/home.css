@@ -3,6 +3,8 @@
     overflow: hidden;
     display: inline-block;
     text-overflow: ellipsis;
+    white-space: nowrap;
+    text-decoration: none;
 }
 
 #wrap-renderer-iframe,#wrap-emitter-iframe{
