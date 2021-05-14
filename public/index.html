@@ -14,54 +14,86 @@
 
 <body>
   <div class="container">
-    <h1 class="display-3 mt-4 mb-4" id="title">Comment Flipper</h1>
-    <p>OBS Studio でリアルタイムに画面上を流れるコメントを実現するツール</p>
-    <h2 class="h6">使い方</h2>
-    <ol class="mb-5">
-      <li class="mb-3">
-        <p>部屋の名前を決めてください</p>
+    <div class="col-lg-12 mx-auto p-3 py-md-5">
+      <header class="d-flex align-items-center pb-3 mb-5 border-bottom">
+        <a href="/" class="d-flex align-items-center text-dark text-decoration-none">
+          <svg xmlns="http://www.w3.org/2000/svg" width="30" height="45" fill="currentColor"
+            class="bi bi-chat-right-dots-fill" viewBox="0 -6 16 24">
+            <path
+              d="M16 2a2 2 0 0 0-2-2H2a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h9.586a1 1 0 0 1 .707.293l2.853 2.853a.5.5 0 0 0 .854-.353V2zM5 6a1 1 0 1 1-2 0 1 1 0 0 1 2 0zm4 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0zm3 1a1 1 0 1 1 0-2 1 1 0 0 1 0 2z" />
+          </svg>
+          <span class="fs-4" style="padding-left:0.2em;" id="host">comflip</span>
+        </a>
+      </header>
+      <main>
+        <h1>Comment Flipper</h1>
+        <p class="mb-5">
+          OBS Studio でリアルタイムに画面上を流れるコメントを実現するオープンソースなツール<br>
+          このサーバーは無料で利用できます<br>
+          自分専用のサーバーを立てることも容易です</p>
+        <hr class="col-3 col-md-2 mb-4">
+        <h2 class="h3 mb-5"><i class="bi bi-signpost-fill"></i> 使い方</h2>
+        <h3 class="h4 mb-3">部屋の名前を入力してください</h3>
         <p>
-          <input type="text" style="max-width: 100%;" name="room-name" id="room-name" size="35" value="テスト部屋" autofocus>
+          <input type="text" style="max-width: 100%;" name="room-name" id="room-name" size="35" value="テスト部屋">
         </p>
         <ul>
           <li>部屋名を知っていれば誰でもコメントの投稿/閲覧が可能です</li>
           <li>偶然の重複による事故を避けたい場合，部屋名にランダムな文字列を加えて
             「テスト部屋+Uhw2f3ij」のようにしてください<br>
-              最後の+以降は部屋名として表示されませんがIDとしては識別されます</li>
+            最後の+以降は部屋名として表示されませんがIDとしては識別されます</li>
         </ul>
-      </li>
-      <li class="mb-3">
-        <p>以下のページでコメントすることができます</p>
-        <p><a id="emitter-link" target="_blank"></a></p>
-          <canvas id="qrcode"></canvas>
-      </li>
-      <li class="mb-3">
-        <p>以下のページにコメントが表示されます</p>
-        <p><a id="renderer-link" target="_blank"></a></p>
+        <div class="row g-5 mt-3">
+          <div class="col-md-6">
+            <h3 class="h4"><i class="bi bi-arrow-down"></i>のページでコメントできます</h3>
+            <div id="wrap-emitter-iframe">
+              <iframe id="emitter-iframe"></iframe>
+            </div>
+            <p><a id="emitter-link" target="_blank"></a></p>
+            <ul>
+              <li>コメントしてほしい人に<i class="bi bi-arrow-up"></i>のURLを連絡してください</li>
+              <li>QRコードも利用できます<br>
+                <canvas id="qrcode"></canvas>
+              </li>
+            </ul>
+            
+          </div>
+          <div class="col-md-6">
+            <h3 class="h4"><i class="bi bi-arrow-down"></i>のページにコメントが表示されます</h3>
+            <div id="wrap-renderer-iframe">
+              <iframe id="renderer-iframe"></iframe>
+            </div>
+            <p><a id="renderer-link" target="_blank"></a></p>
+            <ul>
+              <li>↑のページを OBS Studio で Browser Source として取り込んでください</li>
+              <li>もともと透明なのでクロマキーなどの設定は不要です</li>
+              <li>Browser Source のオプションの Custom CSS で文字色・サイズなどをカスタマイズできます<br>
+                上書きするべき項目については<a
+                  href="https://github.com/maruta/comflip/blob/master/public/renderer/style.css">style.css</a>を参考にしてください
+              </li>
+            </ul>
+          </div>
+        </div>
+        <hr class="col-3 col-md-2 mb-4">
+        <h2 class="h3 mb-3"><i class="bi bi-info-square"></i> 補足説明</h2>
         <ul>
-          <li>↑のページを OBS Studio で Browser Source として取り込んでください</li>
-          <li>Browser Source のオプションの Custom CSS で文字色・サイズなどをカスタマイズできます<br>
-            上書きするべき項目については<a href="https://github.com/maruta/comflip/blob/master/public/renderer/style.css">style.css</a>を参考にしてください
-          </li>
+          <li>このサーバーは無料で利用できます。なるべく維持するつもりではありますが、利用は自己責任でお願いします。</li>
+          <li>サーバーアプリのソースファイルは <a href="https://github.com/maruta/comflip">GitHub</a> で公開されています。<br>
+            信頼性や可用性に不安のある方は自身でソースを確認し、自前のサーバーで運用することをおすすめします。</li>
+          <li>また、<a href="https://github.com/maruta/comflip">GitHub</a> から簡単に<a
+              href="https://jp.heroku.com/">Heroku</a>にデプロイできます。</li>
         </ul>
-      </li>
-    </ol>
-    <h2 class="h6">補足説明</h2>
-    <ul>
-      <li>本サービスの利用は自己責任です．</li>
-      <li>本サービスのソースファイルは <a href="https://github.com/maruta/comflip">GitHub</a> で公開されています．<br>
-        信頼性や可用性に不安のある方は自身でソースを確認し，自前のサーバーで運用してください．</li>
-      <li>また，<a href="https://github.com/maruta/comflip">GitHub</a> から簡単に<a href="https://jp.heroku.com/">Heroku</a>にデプロイできます． </li>
-    </ul>
-    <footer class="pt-5 my-5 text-muted border-top">
-      Created by Ichiro Maruta · © 2021
-    </footer>
+        <footer class="pt-5 my-5 text-muted border-top">
+          Created by Ichiro Maruta · © 2021
+        </footer>
+      </main>
+    </div>
   </div>
 
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"
-    integrity="sha384-p34f1UUtsS3wqzfto5wAAmdvj+osOnFyQFpp4Ua3gs/ZVWx6oOypYoCJhGGScy+8"
-    crossorigin="anonymous"></script>
+    integrity="sha384-p34f1UUtsS3wqzfto5wAAmdvj+osOnFyQFpp4Ua3gs/ZVWx6oOypYoCJhGGScy+8" crossorigin="anonymous">
+    </script>
   <script src="https://cdn.jsdelivr.net/npm/qrcode@latest/build/qrcode.min.js"></script>
   <script src="home.js"></script>
 </body>

@@ -4,3 +4,56 @@
     display: inline-block;
     text-overflow: ellipsis;
 }
+
+#wrap-renderer-iframe,#wrap-emitter-iframe{
+    width:100%;
+    height:400px;
+    border: solid black 1px;
+}
+
+#wrap-renderer-iframe{
+    overflow:hidden;
+    margin:0;
+    padding:0;
+    
+    background-position: 0px 0px, 7px 7px;
+    background-size: 14px 14px;
+    background-repeat: repeat;
+    background-image:
+        linear-gradient(45deg, #fff 25%, transparent 25%, transparent 75%, #fff 75%, #fff 100%),
+        linear-gradient(45deg, #fff 25%, #e3e3e3 25%, #e3e3e3 75%, #fff 75%, #fff 100%);
+
+}
+
+#emitter-iframe{
+    width:calc(100% - 2px);
+    height:398px;
+}
+
+#renderer-iframe{
+    transform-origin: 0 0;
+    transform:scale(0.5);
+    width:200%;
+    height:796px;
+}
+
+.icon-list {
+    padding-left: 0;
+    list-style: none;
+  }
+  .icon-list li {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: .25rem;
+  }
+  .icon-list li::before {
+    display: block;
+    flex-shrink: 0;
+    width: 1.5em;
+    height: 1.5em;
+    margin-right: .5rem;
+    content: "";
+    background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%23212529' viewBox='0 0 16 16'%3E%3Cpath d='M8 0a8 8 0 1 1 0 16A8 8 0 0 1 8 0zM4.5 7.5a.5.5 0 0 0 0 1h5.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3a.5.5 0 0 0 0-.708l-3-3a.5.5 0 1 0-.708.708L10.293 7.5H4.5z'/%3E%3C/svg%3E") no-repeat center center / 100% auto;
+  }
+
+  
