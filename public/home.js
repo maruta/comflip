@@ -13,6 +13,7 @@ document.addEventListener('DOMContentLoaded', function (event) {
 
     const updateLinks = () => {
         const roomName = roomNameInput.value;
+        if(roomName == "") return;
         const emitterURL = new URL("/e#"+roomName,document.baseURI);
         emitterLink.setAttribute('href',emitterURL.href);
         emitterUrlText.innerText = emitterURL.href;
