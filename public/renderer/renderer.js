@@ -118,5 +118,10 @@ document.addEventListener('DOMContentLoaded', function (event) {
     // Wait a moment for the custom CSS to be loaded.
     setTimeout(() => putComment('Waiting for your comments on ' + roomName), 100);
 
+    // Prevent heroku's dyno from going to sleep.
+    setInterval(()=>{
+        const qs = new URLSearchParams({room: roomName});
+        fetch(`/api/heartbeat?${qs}`);
+    }, 10*1000*60);
 })
 
