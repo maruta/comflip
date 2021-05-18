@@ -1,18 +1,19 @@
 # Comment Flipper (comflip)
 
+A tool for OBS Studio that streams submitted comments on the screen in real time.  
+For more information, see the working instance at [https://comflip.herokuapp.com/](https://comflip.herokuapp.com/) .
+
 OBS Studio でリアルタイムに画面上を流れるコメントを実現するツール  
+詳しくは動作中のインスタンス [https://comflip.herokuapp.com/ja/](https://comflip.herokuapp.com/ja/) を参照してください．
 
-A tool to let comments fly across the screen for OBS Studio.
-
-![Demo](https://github.com/maruta/comflip/raw/master/public/imgs/comflip_demo.gif)
+https://user-images.githubusercontent.com/486675/118571674-8c8fd000-b7b9-11eb-939d-87877e20f151.mp4
 
 
-詳しくは動作中のインスタンス [https://comflip.herokuapp.com/](https://comflip.herokuapp.com/) を参照してください．
+## Caution
 
-## 注意事項
-
-自己責任で利用してください．
-
-下のボタンで自分用のインスタンスを作ることもできます．  
+* Use at your own risk.
+* 自己責任で利用してください．
+* You can also create your own instance on Heroku by clicking the button below.    
+* 下のボタンで自分用のインスタンスを作ることもできます．  
 
 [![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy)
