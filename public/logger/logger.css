@@ -1,0 +1,23 @@
+html, body {
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    padding:0;
+    background: transparent;
+}
+
+tbody{
+    overflow-y: scroll;
+}
+td.idx, th.idx{
+    width:3em;
+}
+td.time, th.time{
+    width:13em;
+}
+
+#download{
+    position:absolute;
+    right:5px;
+    top:5px;
+}
