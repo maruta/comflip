@@ -6,7 +6,7 @@ document.addEventListener('DOMContentLoaded', function (event) {
     }
     
     //document.getElementsByClassName('room-name')[0].innerText=roomName;
-
+    document.title = "Log – " + roomName;
     let socket = io({ autoConnect: false });
 
     socket.on("connect", function () {
